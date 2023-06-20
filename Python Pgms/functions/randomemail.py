@@ -1,21 +1,20 @@
 import random
 import string
 
-def generate_random_email():
-    username_length = random.randint(5, 10)  # Random length for username
-    domain_length = random.randint(5, 10)  # Random length for domain
+def generate_random_emailid():
+    username_length = random.randint(5, 10) 
+    
 
-    # Generate random username
     username = ''.join(random.choices(string.ascii_letters + string.digits, k=username_length))
 
-    # Generate random domain
-    domain = ''.join(random.choices(string.ascii_lowercase, k=domain_length))
+    domain=("@gmail.com", "@yahoo.com", "@hotmail.com", "@outlook.com" )
+    domain_random = random.choice(domain)
 
-    # Combine username and domain to form email
-    email = f"{username}@{domain}.com"
+   
+    email = f"{username}{domain_random}"
 
     return email
 
-# Example usage
-random_email = generate_random_email()
+
+random_email = generate_random_emailid()
 print(random_email)
