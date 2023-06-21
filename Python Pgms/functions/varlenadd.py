@@ -1,7 +1,7 @@
 def add_num(*vars):
     sum = 0
     for num in vars:
-        sum += num
+        sum = sum + num
     return sum
 
 
