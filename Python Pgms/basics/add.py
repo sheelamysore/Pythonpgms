@@ -3,12 +3,12 @@ def sum(a, b):
     print("b", b)
     print(a+b)
 
-# sum(2, 3)
-# sum(b=-8, a=7)
+sum(2, 3)
+sum(b=-8, a=7)
 
-def sample(*a):
-    for i in a:
-        print(i)
+#def sample(*a):
+    #for i in a:
+    #    print(i)
+#
 
-
-sample(2, 3, 4)
+#sample(2, 3, 4)
