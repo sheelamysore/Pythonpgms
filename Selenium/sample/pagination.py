@@ -3,6 +3,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver import ActionChains
 from selenium.common.exceptions import NoSuchElementException, TimeoutException 
 import time
 
@@ -12,9 +13,11 @@ opts.add_experimental_option("detach", True)
 driver = webdriver.Chrome(options=opts)
 driver.maximize_window()
 driver.implicitly_wait(10)
+actions = ActionChains(driver)
 
 '''2. Navigating to target URL'''
 driver.get("https://testautomationpractice.blogspot.com/")
+page_value = None
 while True:
     try:
         try:
@@ -26,10 +29,18 @@ while True:
             for i in range(2, rows+1):
                 for j in range(1, cols+1):       
                   data_table = WebDriverWait(driver, 5).until(EC.visibility_of_element_located((By.XPATH, "//table[@id = 'productTable']//tr[" + str(i) + "]/td[" + str(j) + "]")))
-                  print(data_table.text) 
+                  #print(data_table.text) 
+                  if page_value == 2:
+                      element = driver.find_element(By.XPATH,"//table[@id='productTable']//tr[2]/td[1")
+                      second_row = element.text
+                      print(element.text)
                   
         except TimeoutException as T:         
-            driver.find_element(By.XPATH, "//a[@href = '#' and @class ='active']//ancestor::li//following-sibling::li[1]/a").click()
+            get_element = driver.find_element(By.XPATH, "//a[@href = '#' and @class ='active']//ancestor::li//following-sibling::li[1]/a")
+            get_element.click()
+            page_value = get_element.text
+            print(page_value)
+            
          #   //table[@id='productTable']//tr[2]/td[1]
     except NoSuchElementException as E:
         break    

@@ -17,3 +17,10 @@ driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
 driver.find_element(By.XPATH, "//input[@name='username']").send_keys("Admin")
 driver.find_element(By.XPATH, "//input[@name='password']").send_keys("admin123")
 driver.find_element(By.XPATH, "//button[@type='submit']").click()
+driver.find_element(By.XPATH,"//aside[@class = 'oxd-sidepanel']").click()
+driver.find_element(By.XPATH, "//input[@placeholder='Search']").send_keys("Admin")
+driver.find_element(By.XPATH, "//span[text()='Admin']").click()
+    
+    
+    
+    
