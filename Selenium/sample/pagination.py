@@ -30,8 +30,8 @@ while True:
                 for j in range(1, cols+1):       
                   data_table = WebDriverWait(driver, 5).until(EC.visibility_of_element_located((By.XPATH, "//table[@id = 'productTable']//tr[" + str(i) + "]/td[" + str(j) + "]")))
                   #print(data_table.text) 
-                  if page_value == 2:
-                      element = driver.find_element(By.XPATH,"//table[@id='productTable']//tr[2]/td[1")
+                  if page_value == "2":
+                      element = driver.find_element(By.XPATH,"//table[@id='productTable']//tr[2]/td[1]")
                       second_row = element.text
                       print(element.text)
                   
