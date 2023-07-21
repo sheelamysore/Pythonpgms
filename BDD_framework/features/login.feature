@@ -39,12 +39,12 @@ Feature: Login feature of Orange HRM website
   @runsecond  
   Scenario Outline: Login to Orange HRM web page with parameters
     When the User enters valid "<username>" and "<password>"
-    Then the User should successfully login
+    Then verify the "<webpage_URL>" for valid and invalid login
     Examples: 
-    |username|password|
-    |Admin|admin123|
-    |Admin|shjsdd|
-    |dfdsf|admin123|
-    |sdmfn|dfsbnn|
+    |username|password|webpage_URL|
+    |Admin|admin123|/dashboard/index|
+    |Admin|shjsdd|index.php/auth/login|
+    |dfdsf|admin123|index.php/auth/login|
+    |sdmfn|dfsbnn|index.php/auth/login|
     
     

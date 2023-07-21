@@ -20,6 +20,8 @@ driver.find_element(By.XPATH, "//button[@type='submit']").click()
 driver.find_element(By.XPATH,"//aside[@class = 'oxd-sidepanel']").click()
 driver.find_element(By.XPATH, "//input[@placeholder='Search']").send_keys("Admin")
 driver.find_element(By.XPATH, "//span[text()='Admin']").click()
+driver.find_element(By.XPATH, "(//div[@class='oxd-select-text-input'])[1]").click()
+
     
     
     

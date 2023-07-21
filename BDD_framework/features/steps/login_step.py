@@ -13,9 +13,9 @@ testorange_hrm = unittest.TestCase()
 
 @given(u'User has launched Chrome Browser')
 def step_launch_chrome(self):
-    opts=webdriver.ChromeOptions()
-    opts.add_experimental_option("detach", True)
-    self.driver = webdriver.Chrome(options=opts)
+    #opts=webdriver.ChromeOptions()
+    #opts.add_experimental_option("detach", True)
+    self.driver = webdriver.Chrome()
     self.driver.maximize_window()
     self.driver.implicitly_wait(10)   
 
@@ -65,6 +65,16 @@ def step_username_pwrd_parameter(self, username, password):
     self.driver.find_element(By.XPATH, "//input[@name='password']").send_keys(password)
     self.driver.find_element(By.XPATH, "//button[@type='submit']").click()
         
+@then(u'verify the "{webpage_URL}" for valid and invalid login')  
+def step_valid_invalid_login(self,webpage_URL ):    
+    current_url = self.driver.current_url
+    
+    #if dashboard_url == "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login":
+      #  print("test case passed - invalid login")
+    #elif dashboard_url == "https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index":
+       # print("test case passed - valid login")     
+    testorange_hrm.assertIn(webpage_URL, current_url,  "Test case 2 fail")
+      
 
    
     
